@@ -1,0 +1,35 @@
+# calculates the winner of the manche
+
+.model MANCHE
+.inputs  I_Player1Move1 I_Player1Move0 I_Player2Move1 I_Player2Move0
+.outputs O_Winner1 O_Winner0
+
+.search Base/Decoder_2b.blif
+.search Base/Comparators/Equal_2b.blif
+.search Base/Gates/And_2b.blif
+.search Base/Gates/Or_2b.blif
+.search Base/Mux/Mux_2i2b.blif
+.search Base/Constants/One_1b.blif
+.search Base/Constants/Zero_1b.blif
+.search Base/Utils/NoFanout.blif
+
+.subckt ZERO_1b O=ZERO 
+.subckt ONE_1b O=ONEnf
+.subckt NO_FANOUT A=ONEnf B=Selected1_0 O=ONEnf2 
+.subckt NO_FANOUT A=ONEnf2 B=Selected2_0 O=ONE 
+
+
+.subckt DECODER_2b I1=I_Player1Move1 I0=I_Player1Move0 O3=Selected1_3 O2=Selected1_2 O1=Selected1_1 O0=Selected1_0
+.subckt DECODER_2b I1=I_Player2Move1 I0=I_Player2Move0 O3=Selected2_3 O2=Selected2_2 O1=Selected2_1 O0=Selected2_0
+
+.subckt AND_2b A=Selected1_1 B=Selected2_3 O=And_0
+.subckt AND_2b A=Selected1_2 B=Selected2_1 O=And_1
+.subckt AND_2b A=Selected1_3 B=Selected2_2 O=And_2 
+
+.subckt OR_2b A=And_0 B=And_1 O=Or_0
+.subckt OR_2b A=And_2 B=Or_0 O=Winner 
+
+.subckt EQUAL_2b A1=I_Player1Move1 A0=I_Player1Move0 B1=I_Player2Move1 B0=I_Player2Move0 O=EqualMove 
+
+.subckt MUX_2i2b S=Winner A1=ONE A0=ZERO B1=ZERO B0=ONE O1=SelectedWinner1 O0=SelectedWinner0
+.subckt MUX_2i2b S=EqualMove A1=SelectedWinner1 A0=SelectedWinner0 B1=ONE B0=ONE O1=O_Winner1 O0=O_Winner0

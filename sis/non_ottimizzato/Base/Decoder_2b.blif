@@ -1,0 +1,12 @@
+.model DECODER_2b 
+.inputs I1 I0 
+.outputs O3 O2 O1 O0
+
+.names I1 I0 O3
+11 1
+.names I1 I0 O2
+10 1
+.names I1 I0 O1
+01 1
+.names I1 I0 O0
+00 1
