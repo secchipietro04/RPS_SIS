@@ -1,0 +1,96 @@
+
+Network simulation:
+Outputs: 0 0 0 0 0 1 0 0 0 0 1 0 0 0
+Next state: 00000011010000100000000
+
+Network simulation:
+Outputs: 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+Next state: 00000011010000100000000
+
+Network simulation:
+Outputs: 0 1 0 0 0 1 0 0 1 0 0 0 0 0
+Next state: 10001011010001000100100
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 1 0 0 0 0 0
+Next state: 00010011010001100110101
+
+Network simulation:
+Outputs: 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+Next state: 00000011010001100110110
+
+Network simulation:
+Outputs: 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+Next state: 00000011010001100110110
+
+Network simulation:
+Outputs: 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+Next state: 00000011010001100110110
+
+Network simulation:
+Outputs: 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+Next state: 00000011010001100110110
+
+Network simulation:
+Outputs: 0 0 0 0 1 0 0 0 0 0 1 0 0 0
+Next state: 00000001010000100000000
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 1 0 0 0 0 0
+Next state: 00110001010001000011000
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 1 0 0 0 0 0
+Next state: 01010001010001100110110
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 1 0 1 0 0 0 1 0
+Next state: 00010001010010010101110
+
+Network simulation:
+Outputs: 0 1 1 0 0 1 0 0 1 1 0 1 1 0
+Next state: 10001001010010110111010
+
+Network simulation:
+Outputs: 0 0 0 0 1 0 0 0 0 1 1 0 1 0
+Next state: 10000001010000100000000
+
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 1 0 0 0 0 0
+Next state: 10011001010001000111100
+
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 1 0 0 0 0 0
+Next state: 10011001010001100111111
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 1 0 0 0 0 0
+Next state: 00010001010010000110111
+
+Network simulation:
+Outputs: 1 0 0 0 1 0 0 0 1 1 0 1 0 0
+Next state: 00110001010010100101110
+
+Network simulation:
+Outputs: 0 0 0 0 1 0 0 0 0 1 1 0 0 0
+Next state: 00100001010000100000000
+
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 1 0 0 0 0 0
+Next state: 00111001010001000111100
+
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 1 0 0 0 0 0
+Next state: 00111001010001100111111
+
+Network simulation:
+Outputs: 1 1 0 0 1 1 0 0 1 0 0 0 0 0
+Next state: 00111001010010000111111
+
+Network simulation:
+Outputs: 1 0 1 0 1 0 1 0 1 1 0 1 1 0
+Next state: 00010001010010110110111
+
+Network simulation:
+Outputs: 0 1 0 1 0 1 0 1 1 1 1 1 0 1
+Next state: 00001001010011001011110

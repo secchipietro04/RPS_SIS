@@ -12,7 +12,7 @@
 #simulate 0 1 1 0 1 1 0 0 same move but different last winner
 #simulate 0 1 0 1 0 1 0 0 another move but same last winner
 .model PLAYER
-.inputs I_Player1 I_Player0 I_LastWinner1 I_LastWinner0  I_Move1  I_Move0 I_Reset I_Record
+.inputs I_Reset I_Player1 I_Player0 I_LastWinner1 I_LastWinner0  I_Move1  I_Move0  I_Record
 .outputs  O_IsMoveValid  O_Move1 O_Move0
 
 .search Base/Gates/Not_1b.blif

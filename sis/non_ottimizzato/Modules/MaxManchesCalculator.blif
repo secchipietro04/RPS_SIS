@@ -1,5 +1,5 @@
 .model MAX_MANCHES_CALCULATOR
-.inputs I_Add4 I_Add3 I_Add2 I_Add1 I_Add0  I_IntB1 I_IntB0 I_IntA1 I_IntA0 I_Reset  
+.inputs I_Reset I_Add4 I_Add3 I_Add2 I_Add1 I_Add0  I_IntB1 I_IntB0 I_IntA1 I_IntA0   
 .outputs  O_MaxManches4 O_MaxManches3 O_MaxManches2 O_MaxManches1 O_MaxManches0 
 # A is least significant
 #tests:

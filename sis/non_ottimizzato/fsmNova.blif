@@ -1,9 +1,9 @@
 .model FSM
 .inputs Valid Min Max I_MancheWinner1 I_MancheWinner0
 .outputs O_GameWinner1 O_GameWinner0
-.latch    [19] LatchOut_v5   1
-.latch    [20] LatchOut_v6   0
-.latch    [21] LatchOut_v7   0
+.latch    [136] LatchOut_v5   0
+.latch    [137] LatchOut_v6   1
+.latch    [138] LatchOut_v7   0
 .start_kiss
 .i 5
 .o 2
@@ -39,114 +39,114 @@
 11010 P2_1 TIE 10
 .end_kiss
 .latch_order LatchOut_v5 LatchOut_v6 LatchOut_v7
-.code TIE 100
+.code TIE 010
 .code P1_1 000
-.code P2_2 101
-.code P1_2 010
-.code P2_1 110
+.code P2_2 110
+.code P1_2 001
+.code P2_1 011
+.names Valid Min I_MancheWinner0 LatchOut_v5 LatchOut_v6 LatchOut_v7 [136]
+0--1-- 1
+100-11 1
+1-0010 1
 .names Valid Min Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 [19]
-0----1-- 1
----1-1-- 1
------11- 1
-1-1--1-- 1
-1---0-0- 1
+LatchOut_v7 [137]
+0-----1- 1
+---1--1- 1
+------11 1
+1-1--0-- 1
 1-1----0 1
-11-0-0-- 1
-1---101- 1
-1-00---1 1
+1---0--0 1
+1-00-1-- 1
+11-0--0- 1
+1---1-01 1
 .names Valid Min Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 [20]
-0----11- 1
-1-00---1 1
---01111- 1
-10-0-00- 1
-.names Valid Min I_MancheWinner0 LatchOut_v5 LatchOut_v6 LatchOut_v7 [21]
-0----1 1
-1001-0 1
-1-0100 1
-.names Valid Min Max I_MancheWinner0 LatchOut_v5 LatchOut_v6 O_MancheWinner1
+LatchOut_v7 [138]
+0-----11 1
+1-00-1-- 1
+--011-11 1
+10-0--00 1
+.names Valid Min Max I_MancheWinner0 LatchOut_v6 LatchOut_v7 O_GameWinner1
 1-1-1- 1
 1-1--0 1
 11-011 1
 .names Valid Min Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 O_MancheWinner0
-1-1----0 1
-11-0-0-- 1
-1---101- 1
-1-01---1 1
+LatchOut_v7 O_GameWinner0
+1-1--0-- 1
+1-01-1-- 1
+11-0--0- 1
+1---1-01 1
 .exdc 
 .inputs Valid Min Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
 LatchOut_v7
-.outputs [19] [20] [21] O_MancheWinner1 O_MancheWinner0
+.outputs [136] [137] [138] O_GameWinner1 O_GameWinner0
 .names Valid Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 [19]
-----0-1 1
------11 1
+LatchOut_v7 [136]
+----10- 1
+----1-1 1
 1000--- 1
-110-11- 1
-11-011- 1
-1-0011- 1
-110-00- 1
-11-000- 1
-1-0000- 1
-110-1-0 1
-11-01-0 1
-1-001-0 1
+110-01- 1
+11-001- 1
+1-0001- 1
+110--11 1
+11-0-11 1
+1-00-11 1
+110--00 1
+11-0-00 1
+1-00-00 1
 .names Valid Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 [20]
-----0-1 1
------11 1
+LatchOut_v7 [137]
+----10- 1
+----1-1 1
 1000--- 1
-110-11- 1
-11-011- 1
-1-0011- 1
-110-00- 1
-11-000- 1
-1-0000- 1
-110-1-0 1
-11-01-0 1
-1-001-0 1
+110-01- 1
+11-001- 1
+1-0001- 1
+110--11 1
+11-0-11 1
+1-00-11 1
+110--00 1
+11-0-00 1
+1-00-00 1
 .names Valid Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 [21]
-----0-1 1
------11 1
+LatchOut_v7 [138]
+----10- 1
+----1-1 1
 1000--- 1
-110-11- 1
-11-011- 1
-1-0011- 1
-110-00- 1
-11-000- 1
-1-0000- 1
-110-1-0 1
-11-01-0 1
-1-001-0 1
+110-01- 1
+11-001- 1
+1-0001- 1
+110--11 1
+11-0-11 1
+1-00-11 1
+110--00 1
+11-0-00 1
+1-00-00 1
 .names Valid Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 O_MancheWinner1
-----0-1 1
------11 1
+LatchOut_v7 O_GameWinner1
+----10- 1
+----1-1 1
 1000--- 1
-110-11- 1
-11-011- 1
-1-0011- 1
-110-00- 1
-11-000- 1
-1-0000- 1
-110-1-0 1
-11-01-0 1
-1-001-0 1
+110-01- 1
+11-001- 1
+1-0001- 1
+110--11 1
+11-0-11 1
+1-00-11 1
+110--00 1
+11-0-00 1
+1-00-00 1
 .names Valid Max I_MancheWinner1 I_MancheWinner0 LatchOut_v5 LatchOut_v6 \
-LatchOut_v7 O_MancheWinner0
-----0-1 1
------11 1
+LatchOut_v7 O_GameWinner0
+----10- 1
+----1-1 1
 1000--- 1
-110-11- 1
-11-011- 1
-1-0011- 1
-110-00- 1
-11-000- 1
-1-0000- 1
-110-1-0 1
-11-01-0 1
-1-001-0 1
+110-01- 1
+11-001- 1
+1-0001- 1
+110--11 1
+11-0-11 1
+1-00-11 1
+110--00 1
+11-0-00 1
+1-00-00 1
 .end

@@ -5,7 +5,7 @@
 
 .model DATAPATH
 .inputs INIZIA PRIMO1 PRIMO0 SECONDO1 SECONDO0   I_GameWinner1 I_GameWinner0
-.outputs PARTITA1 PARTITA0 MANCHE1 MANCHE0  O_Min O_Max O_AreMovesValid 
+.outputs PARTITA1 PARTITA0 MANCHE1 MANCHE0  O_Min O_Max Min O_AreMovesValid  O_MancheWinner1 O_MancheWinner0 LastNonZero1 LastNonZero0
 
 .search Modules/Players.blif
 .search Modules/LastNonZero.blif
@@ -16,9 +16,11 @@
 .search Base/Mux/Mux_2i2b.blif
 .search Base/Mux/Mux_2i1b.blif
 .search Base/Comparators/Equal_5b.blif
+.search Base/Comparators/GreaterEqual_5b.blif
 .search Base/Constants/One_1b.blif
 .search Base/Constants/Zero_1b.blif
 .search Base/Gates/And_2b.blif
+.search Base/Gates/Not_1b.blif
 
 .search Base/Registers/Register_2b.blif
 
@@ -26,7 +28,8 @@
 .subckt ZERO_1b O=ZERO
 .subckt ONE_1b  O=ONE
 
-.subckt REGISTER_2b I1=MancheWinner1 I0=MancheWinner0 O1=Reg_MancheWinner1 O0=Reg_MancheWinner0
+.subckt MUX_2i2b S=O_AreMovesValid  A1=ZERO A0=ZERO  B1=O_MancheWinner1 B0=O_MancheWinner0 O1=Sel_MancheWinner1 O0=Sel_MancheWinner0
+.subckt REGISTER_2b I1=Sel_MancheWinner1 I0=Sel_MancheWinner0 O1=Reg_MancheWinner1 O0=Reg_MancheWinner0
 
 
 .subckt PLAYERS  I_Reset=INIZIA I_Player1Move1=PRIMO1 I_Player1Move0=PRIMO0 I_Player2Move1=SECONDO1 I_Player2Move0=SECONDO0 I_Winner1=Reg_MancheWinner1 I_Winner0=Reg_MancheWinner0  O_AreMovesValid=ValidMoves O_Player1Move1=Player1Move1 O_Player1Move0=Player1Move0 O_Player2Move1=Player2Move1 O_Player2Move0=Player2Move0 
@@ -38,18 +41,28 @@
 .subckt LAST_NON_ZERO I_Reset=INIZIA I_Value1=I_GameWinner1 I_Value0=I_GameWinner0 O_LastNonZero1=LastNonZero1 O_LastNonZero0=LastNonZero0
 
 #at least 4
-.subckt EQUAL_5b A4=ZERO A3=ZERO A2=ONE A1=ZERO A0=ZERO B4=NMatch4 B3=NMatch3 B2=NMatch2 B1=NMatch1 B0=NMatch0 O=O_Min
+.subckt GREATER_EQUAL_5b A4=NMatch4 A3=NMatch3 A2=NMatch2 A1=NMatch1 A0=NMatch0 B4=ZERO B3=ZERO B2=ONE B1=ZERO B0=ZERO O=O_Min
 
 #Max matches
 .subckt EQUAL_5b A4=MaxManches4 A3=MaxManches3 A2=MaxManches2 A1=MaxManches1 A0=MaxManches0 B4=NMatch4 B3=NMatch3 B2=NMatch2 B1=NMatch1 B0=NMatch0 O=Max
 
 
-.subckt MUX_2i1b S=INIZIA  I1=ValidMoves I0=ZERO O=O_AreMovesValid
+.subckt MUX_2i1b S=INIZIA  I1=ValidMoves I0=ONE O=O_AreMovesValid
 .subckt MUX_2i1b S=INIZIA  I1=Max I0=ONE O=O_Max
-.subckt MUX_2i2b S=ValidMoves  A1=ZERO A0=ZERO  B1=MancheWinner1 B0=MancheWinner0 O1=MANCHE1 O0=MANCHE0
-.subckt MUX_2i2b S=O_Min  A1=ZERO A0=ZERO  B1=LastNonZero1 B0=LastNonZero0 O1=PARTITA1 O0=PARTITA0
 
-.subckt MANCHE  I_Player1Move1=Player1Move1 I_Player1Move0=Player1Move0 I_Player2Move1=Player2Move1 I_Player2Move0=Player2Move0    O_Winner1=MancheWinner1 O_Winner0=MancheWinner0  
+.subckt NOT_1b A=INIZIA O=N_INIZIA
+
+.subckt AND_2b A=N_INIZIA B=O_AreMovesValid O=MovesValid_N_Inizia
+
+
+.subckt MUX_2i2b S=MovesValid_N_Inizia  A1=ZERO A0=ZERO  B1=O_MancheWinner1 B0=O_MancheWinner0 O1=MANCHE1 O0=MANCHE0
+
+.subckt AND_2b A=N_INIZIA B=O_Min O=Min
+
+
+.subckt MUX_2i2b S=Min  A1=ZERO A0=ZERO  B1=LastNonZero1 B0=LastNonZero0 O1=PARTITA1 O0=PARTITA0
+
+.subckt MANCHE  I_Player1Move1=Player1Move1 I_Player1Move0=Player1Move0 I_Player2Move1=Player2Move1 I_Player2Move0=Player2Move0    O_Winner1=O_MancheWinner1 O_Winner0=O_MancheWinner0  
 
 
 .end
